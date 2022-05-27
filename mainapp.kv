@@ -1,0 +1,61 @@
+#:kivy 2.0.0
+
+<MainWindow>:
+    orientation: 'vertical'
+    MDToolbar:
+        title: 'Аванс ПЗ'
+
+
+    MDBottomNavigation:
+
+        MDBottomNavigationItem:
+            name: 'screen home'
+            text: 'Головна'
+            icon: 'home'
+
+            MDBoxLayout:
+                orientation: 'vertical'
+                MDBoxLayout:
+                    MDTextField:
+                        id: search_name
+                        hint_text: "Введіть ім'я для пошуку"
+                    MDRectangleFlatButton:
+                        text: "Пошук"
+                        on_release:
+                            app.search_name_result(root.ids.search_name.text)
+
+                ScrollView:
+                    MDList:
+                        id: search_results
+
+
+        MDBottomNavigationItem:
+            name: 'screen add'
+            text: 'Управління'
+            icon: 'pencil'
+
+            BoxLayout:
+                orientation: "vertical"
+
+                MDTextField:
+                    hint_text: "Ім'я працівника"
+                    id: add_name
+                MDTextField:
+                    hint_text: "Введіть аванс"
+                    multiline: True
+                    id: add_avans
+                Widget:
+                MDFloatingActionButton:
+                    icon: "account-plus"
+                    pos_hint: {"right": .97}
+                    on_release:
+                        app.save_user_and_switch_to_search(root.ids.add_name.text, root.ids.add_avans.text)
+
+
+
+
+<SearchResultItem>:
+    IconLeftWidget:
+        icon: "user"
+    RightButton:
+        icon: "plus"
