@@ -27,6 +27,10 @@ class User(Base):
         session.commit()
         return user
 
+    @classmethod
+    def find_by_name(cls, name):
+        return session.query(cls).filter(cls.name.ilike(f'%{name}%'))
+
 
 class Avans(Base):
     __tablename__ = 'avans'

@@ -7,6 +7,7 @@
 
 
     MDBottomNavigation:
+        id: bottom_nav
 
         MDBottomNavigationItem:
             name: 'screen home'
@@ -25,8 +26,10 @@
                             app.search_name_result(root.ids.search_name.text)
 
                 ScrollView:
+                    size_hint: 1, 6
                     MDList:
                         id: search_results
+                Widget:
 
 
         MDBottomNavigationItem:
@@ -56,6 +59,6 @@
 
 <SearchResultItem>:
     IconLeftWidget:
-        icon: "user"
+        icon: "account"
     RightButton:
         icon: "plus"
