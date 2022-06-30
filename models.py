@@ -31,6 +31,15 @@ class User(Base):
     def find_by_name(cls, name):
         return session.query(cls).filter(cls.name.ilike(f'%{name}%'))
 
+    @classmethod
+    def delete_by_id(cls, user_id):
+        user = session.query(cls).filter_by(id=user_id).first()
+        if user:
+            session.delete(user)
+            session.commit()
+            return True
+        return False
+
 
 class Avans(Base):
     __tablename__ = 'avans'
