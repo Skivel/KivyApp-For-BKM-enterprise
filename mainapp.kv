@@ -34,8 +34,8 @@
 
         MDBottomNavigationItem:
             name: 'screen add'
-            text: 'Управління'
-            icon: 'pencil'
+            text: 'Добавити'
+            icon: 'plus'
 
             BoxLayout:
                 orientation: "vertical"
@@ -61,4 +61,6 @@
     IconLeftWidget:
         icon: "account"
     RightButton:
-        icon: "plus"
+        icon: "trash-can"
+        on_release:
+            root.delete_user()

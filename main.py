@@ -3,7 +3,11 @@ from kivymd.uix.boxlayout import MDBoxLayout
 from kivymd.uix.list import IRightBody, TwoLineAvatarIconListItem
 from kivymd.uix.button import MDIconButton
 
-from utils import avans_saver, show_all_for_name
+from utils import (
+    avans_saver,
+    show_all_for_name,
+    delete_by_id
+)
 
 
 class MainWindow(MDBoxLayout):
@@ -15,7 +19,13 @@ class RightButton(IRightBody, MDIconButton):
 
 
 class SearchResultItem(TwoLineAvatarIconListItem):
-    pass
+    def __init__(self, user_id, **kwargs):
+        super(SearchResultItem, self).__init__(**kwargs)
+        self.user_id = user_id
+
+    def delete_user(self):
+        if delete_by_id(self.user_id):
+            self.parent.remove_widget(self)
 
 
 class MainApp(MDApp):
@@ -25,7 +35,7 @@ class MainApp(MDApp):
         result_list_widget.clear_widgets()
         for users in show_all_for_name(query):
             result_list_widget.add_widget(
-                SearchResultItem(text=f"{users[0]}", secondary_text=f"{users[1]}")
+                SearchResultItem(text=f"{users[0]}", secondary_text=f"{users[1]}", user_id=users[2])
             )
 
     def save_user_and_switch_to_search(self, name, avans):

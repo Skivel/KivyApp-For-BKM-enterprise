@@ -12,4 +12,9 @@ def avans_saver(name: str, avans: str) -> bool:
 
 
 def show_all_for_name(name: str):
-    return [tuple([user.name, ", ".join([avans.avans for avans in user.avans])]) for user in models.User.find_by_name(name)]
+    return [tuple([user.name, ", ".join([avans.avans for avans in user.avans]), user.id]) for user in
+            models.User.find_by_name(name)]
+
+
+def delete_by_id(user_id):
+    return User.delete_by_id(user_id)
