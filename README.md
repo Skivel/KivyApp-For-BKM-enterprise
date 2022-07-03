@@ -1,4 +1,4 @@
-#if not working app store in ubuntu 20.04.02
+# if not working app store in ubuntu 20.04.02
 sudo snap remove snap-store
 sudo snap install snap-store
 
