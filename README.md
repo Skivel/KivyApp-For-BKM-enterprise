@@ -38,4 +38,4 @@ in buildozer.spec find & uncoment android.logcat_filters = *:S python:D
 buildozer android debug deploy run logcat
 
 # Create APK
-buildozer android debug deploy run
+buildozer android debug
