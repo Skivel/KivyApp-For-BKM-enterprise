@@ -31,4 +31,11 @@ pip3 install --user --upgrade Cython==0.29.19 virtualenv
 # add the following line at the end of your ~/.bashrc file
 export PATH=$PATH:~/.local/bin/
 
+# Debug app with phone
+
+in buildozer.spec find & uncoment android.logcat_filters = *:S python:D
+
+buildozer android debug deploy run logcat
+
+# Create APK
 buildozer android debug deploy run
