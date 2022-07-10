@@ -17,6 +17,7 @@ def show_all_for_name(name: str):
 
 
 def info_by_user_id(user_id):
+    print(user_id)
     return user_id
 
 

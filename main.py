@@ -33,7 +33,6 @@ class SearchResultItem(TwoLineAvatarIconListItem):
             pass
 
 
-
 class MainApp(MDApp):
     def search_name_result(self, query):
         app = MDApp.get_running_app()
